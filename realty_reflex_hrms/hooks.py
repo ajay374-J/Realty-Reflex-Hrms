@@ -137,34 +137,26 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Attendance Request": {
+		# "validate": "realty_reflex_hrms.realty_reflex_hrms.attedance.validate_short_leave",
+        "on_submit": "realty_reflex_hrms.realty_reflex_hrms.overtime_compoff.create_comp_off"
+
+	},
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"realty_reflex_hrms.tasks.all"
-# 	],
-# 	"daily": [
-# 		"realty_reflex_hrms.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"realty_reflex_hrms.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"realty_reflex_hrms.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"realty_reflex_hrms.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+    "cron":{
+	"30 02 * * *": [
+            "realty_reflex_hrms.realty_reflex_hrms.overtime_compoff.generate_compoff_ot",
+            "realty_reflex_hrms.realty_reflex_hrms.overtime_compoff.laps_compoff"
+        ],
+    }
+
+}
 
 # Testing
 # -------
