@@ -7,7 +7,7 @@ from frappe.utils.data import get_time, getdate, today
 
 
 @frappe.whitelist()
-def generate_compoff_ot(self,method):
+def generate_compoff_ot():
 	class_forms = frappe.db.sql("""
     SELECT 
         name, employee, type

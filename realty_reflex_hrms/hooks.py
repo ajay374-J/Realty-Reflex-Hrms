@@ -141,7 +141,6 @@ doc_events = {
 	"Attendance Request": {
 		# "validate": "realty_reflex_hrms.realty_reflex_hrms.attedance.validate_short_leave",
         "on_submit": "realty_reflex_hrms.realty_reflex_hrms.overtime_compoff.create_comp_off",
-        "before_save":"realty_reflex_hrms.realty_reflex_hrms.overtime_compoff.generate_compoff_ot"
 
 	},
 }
