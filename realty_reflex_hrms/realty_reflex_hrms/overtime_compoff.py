@@ -7,7 +7,7 @@ from frappe.utils.data import get_time, getdate, today
 
 
 @frappe.whitelist()
-def generate_compoff_ot():
+def generate_compoff_ot(self,method):
 	class_forms = frappe.db.sql("""
     SELECT 
         name, employee, type
@@ -27,12 +27,11 @@ def generate_compoff_ot():
 	for form in class_forms:
 		holiday_dates = []
 		
-		hl_week_offs = frappe.db.get_all("Holiday",{"parent":get_holiday_list_for_employee(form.employee),"weekly_off":1,"holiday_date":['between',[yesterday,yesterday]]},["holiday_date"])
+		hl_week_offs = frappe.db.get_all("Holiday",{"parent":get_holiday_list_for_employee(form.employee),"holiday_date":['between',[yesterday,yesterday]]},["holiday_date"])
 		for hl in hl_week_offs:
 			holiday_dates.append(hl.holiday_date)		
 		form_type = form.type
 		diff=0
-		
 		if holiday_dates:
 			doc=frappe.get_doc("Employee",form.employee)
 			shift_hours=0
@@ -82,7 +81,7 @@ def generate_compoff_ot():
 					if form_type == "Compensatory Off" and diff  > frappe.db.get_value("Shift Type",first_checkin[0]['shift'],"custom_holiday_min_compensatory_off_hrs"):
 						comp_off_doc = frappe.new_doc("Compensatory Leave Request")
 						comp_off_doc.employee = form.employee
-						comp_off_doc.leave_type = "Compensatory Off"
+						comp_off_doc.leave_type = frappe.db.get_value("Leave Type",{"is_compensatory":1},"name")
 						comp_off_doc.work_from_date = yesterday
 						comp_off_doc.work_end_date = yesterday
 						comp_off_doc.reason = "Extra Work On Holiday"
