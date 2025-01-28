@@ -143,6 +143,7 @@ doc_events = {
         "on_submit": "realty_reflex_hrms.realty_reflex_hrms.overtime_compoff.create_comp_off",
 
 	},
+    "User": {"on_update":"realty_reflex_hrms.user.send_welcome_mail"}
 }
 
 # Scheduled Tasks
