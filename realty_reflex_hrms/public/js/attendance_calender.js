@@ -84,5 +84,5 @@ frappe.views.calendar["Attendance"] = {
             }
         },
     },
-    get_events_method: "hrms.hr.doctype.attendance.attendance.get_events",
+    get_events_method: "realty_reflex_hrms.atte_calender.get_events",
 };
