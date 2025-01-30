@@ -55,3 +55,21 @@ def add_attendance(events, start, end, conditions=None):
         }
         if e not in events:
             events.append(e)
+
+
+
+@frappe.whitelist()
+def is_leave_application_exists(date, employee):
+	"""
+	Check if a Leave Application exists for the given date and employee.
+	"""
+	exists = frappe.db.exists(
+		"Leave Application",
+		{
+			"employee": employee,
+			"from_date": ["<=", date],
+			"to_date": [">=", date],
+			"docstatus": ["<", 2],  # Exclude canceled applications
+		},
+	)
+	return bool(exists)

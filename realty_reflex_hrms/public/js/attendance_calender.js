@@ -54,7 +54,7 @@ frappe.views.calendar["Attendance"] = {
                 
                 // Check if Leave Application exists
                 frappe.call({
-                    method: "cn_leave_shift_managment.api.is_leave_application_exists",
+                    method: "realty_reflex_hrms.atte_calender.is_leave_application_exists",
                     args: {
                         date: date,
                         employee: event.employee, // Assuming employee is part of the event object
