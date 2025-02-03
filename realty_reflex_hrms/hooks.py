@@ -130,7 +130,10 @@ doctype_calendar_js = {"Attendance" : "public/js/attendance_calender.js"}
 # Override standard doctype classes
 
 override_doctype_class = {
-	"Compensatory Leave Request": "realty_reflex_hrms.comp_off.CustomCompensatoryLeaveRequest"
+	"Compensatory Leave Request": "realty_reflex_hrms.comp_off.CustomCompensatoryLeaveRequest",
+    "Leave Application": "realty_reflex_hrms.leave_application.CustomLeaveApplication"
+
+
 }
 
 # Document Events
