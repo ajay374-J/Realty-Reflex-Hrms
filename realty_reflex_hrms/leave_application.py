@@ -19,8 +19,7 @@ class CustomLeaveApplication(LeaveApplication):
             doc=frappe.get_doc("Custom Settings")
             # Fetch emails from custom_ccs child table
             cc_emails = []
-            if self.status in ["Approved", "Rejected"] and hasattr(doc, "leave_application_cc"):
-                cc_emails = [row.user for row in doc.leave_application_cc if row.user]
+            cc_emails = [row.user for row in doc.leave_application_cc if row.user]
 
             # Fetch required variables for email template
             email_context = {
