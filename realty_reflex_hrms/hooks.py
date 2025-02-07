@@ -158,6 +158,9 @@ scheduler_events = {
             "realty_reflex_hrms.realty_reflex_hrms.overtime_compoff.generate_compoff_ot",
             "realty_reflex_hrms.realty_reflex_hrms.overtime_compoff.laps_compoff"
         ],
+    "30 23 * * *":[
+        "realty_reflex_hrms.atte_calender.setup_time"
+    ]
     }
 
 }

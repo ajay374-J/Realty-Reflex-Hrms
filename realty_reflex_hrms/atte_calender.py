@@ -73,3 +73,12 @@ def is_leave_application_exists(date, employee):
 		},
 	)
 	return bool(exists)
+
+
+
+def setup_time():
+    shifts = frappe.db.get_all("Shift Type",filters = {"enable_auto_attendance":1})
+    today = frappe.utils.now_datetime()
+    end_of_day = today.replace(hour=23, minute=59, second=59, microsecond=0)
+    for shift in shifts:
+        frappe.db.set_value("Shift Type",shift,"last_sync_of_checkin",end_of_day)
