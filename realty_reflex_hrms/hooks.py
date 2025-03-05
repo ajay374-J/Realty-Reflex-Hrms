@@ -154,7 +154,7 @@ doc_events = {
 
 scheduler_events = {
     "cron":{
-	"30 02 * * *": [
+	"00 08 * * *": [
             "realty_reflex_hrms.realty_reflex_hrms.overtime_compoff.generate_compoff_ot",
             "realty_reflex_hrms.realty_reflex_hrms.overtime_compoff.laps_compoff"
         ],
