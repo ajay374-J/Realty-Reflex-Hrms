@@ -146,7 +146,7 @@ doc_events = {
         "on_submit": "realty_reflex_hrms.realty_reflex_hrms.overtime_compoff.create_comp_off",
 
 	},
-    # "User": {"on_updatxe":"realty_reflex_hrms.user.send_welcome_mail"}
+    "Employee Checkin": {"before_save":"realty_reflex_hrms.realty_reflex_hrms.employee_checkin.is_inside_geofence"}
 }
 
 # Scheduled Tasks

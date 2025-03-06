@@ -5,7 +5,12 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "leave_application_cc"
+  "leave_application_cc",
+  "section_break_xsmy",
+  "latitude",
+  "allow_checkin_in_radius",
+  "column_break_dfmy",
+  "longitude"
  ],
  "fields": [
   {
@@ -13,12 +18,35 @@
    "fieldtype": "Table",
    "label": "Leave Application CC",
    "options": "Leave Application CC"
+  },
+  {
+   "fieldname": "section_break_xsmy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Company Latitude"
+  },
+  {
+   "fieldname": "allow_checkin_in_radius",
+   "fieldtype": "Int",
+   "label": "Allow Checkin In Radius(meters)"
+  },
+  {
+   "fieldname": "column_break_dfmy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Company Longitude"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-02-03 21:20:51.438383",
+ "modified": "2025-03-06 13:04:53.284621",
  "modified_by": "Administrator",
  "module": "Realty Reflex Hrms",
  "name": "Custom Settings",
